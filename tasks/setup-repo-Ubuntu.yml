@@ -1,0 +1,5 @@
+---
+- name: "Add repository."
+  apt_repository:
+    repo: "{{ java_repo }}"
+    state: "present"

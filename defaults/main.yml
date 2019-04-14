@@ -1,0 +1,12 @@
+---
+java_packages: "oracle-java12-installer"
+java_set_default_package: "oracle-java12-set-default"
+java_set_default: true
+
+# For Ubuntu
+java_repo: "ppa:linuxuprising/java"
+
+# For Debian
+java_deb_source: "deb http://ppa.launchpad.net/linuxuprising/java/ubuntu bionic main"
+java_key_server: "hkp://keyserver.ubuntu.com:80"
+java_key: "73C3DB2A"

@@ -1,0 +1,36 @@
+---
+- include_tasks: setup-repo-Debian.yml
+  when:
+    - ansible_os_family == 'Debian'
+    - ansible_distribution != 'Ubuntu'
+
+- include_tasks: setup-repo-Ubuntu.yml
+  when:
+    - ansible_distribution == 'Ubuntu'
+
+- name: "Refresh apt sources list"
+  apt:
+    update_cache: true
+    cache_valid_time: 86400
+
+- name: "Quietly accept Java licence"
+  shell: |
+    /usr/bin/debconf-set-selections oracle-java12-installer shared/accepted-oracle-license-v1-2 select true
+  changed_when: false
+
+- name: "Install Java"
+  apt:
+    name: "{{ java_packages }}"
+    state: present
+
+- name: "Set default"
+  apt:
+    name: "{{ java_set_default_package }}"
+    state: present
+  when: java_set_default
+
+- name: "Remove default"
+  apt:
+    name: "{{ java_set_default_package }}"
+    state: absent
+  when: not java_set_default
