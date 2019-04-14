@@ -1,6 +1,7 @@
+---
 dependencies: []
-role_name: oracle_java
 galaxy_info:
+  role_name: oracle_java
   author: Gripinskiy Sergey
   description: Installs Oracle Java via ppa repository.
   company:
@@ -9,12 +10,9 @@ galaxy_info:
   platforms:
     - name: Ubuntu
       versions:
-        -bionic
-    - name: Debian
-      versions:
-        -all
+        - bionic
 
   galaxy_tags:
-    - java;
-    - oracle;
-    - ubuntu;
+    - java
+    - oracle
+    - ubuntu

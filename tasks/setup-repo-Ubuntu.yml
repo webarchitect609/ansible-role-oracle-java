@@ -3,3 +3,12 @@
   apt_repository:
     repo: "{{ java_repo }}"
     state: "present"
+
+- name: Ensure 'man' directory exists.
+  file:
+    path: /usr/share/man/man1
+    state: directory
+    recurse: true
+  when:
+    - ansible_distribution == 'Ubuntu'
+    - ansible_distribution_version == '18.04'

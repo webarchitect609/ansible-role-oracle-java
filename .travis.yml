@@ -4,10 +4,10 @@ services: docker
 
 env:
   global:
-    - ROLE_NAME: oracle_java
+    - ROLE_NAME: oracle-java
   matrix:
     - MOLECULE_DISTRO: ubuntu1804
-    - MOLECULE_DISTRO: debian9
+    # - MOLECULE_DISTRO: debian9
 
 install:
   # Install test dependencies.

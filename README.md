@@ -16,7 +16,7 @@ Role Variables
 None of variables is needed to be altered for install Oracle Java 12 from [Linux Uprising PPA](https://launchpad.net/~linuxuprising/+archive/ubuntu/java).
 But all available variables are listed below, along with default values (see `defaults/main.yml`):
 
-    java_packages: "oracle-java12-installer"
+    java_package: "oracle-java12-installer"
 
 Package to install Java.
 

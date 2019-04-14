@@ -1,8 +1,9 @@
 ---
-- include_tasks: setup-repo-Debian.yml
-  when:
-    - ansible_os_family == 'Debian'
-    - ansible_distribution != 'Ubuntu'
+# TODO Fix `No package matching 'oracle-java12-installer' is available` for Debian
+# - include_tasks: setup-repo-Debian.yml
+#  when:
+#    - ansible_os_family == 'Debian'
+#    - ansible_distribution != 'Ubuntu'
 
 - include_tasks: setup-repo-Ubuntu.yml
   when:
@@ -14,13 +15,15 @@
     cache_valid_time: 86400
 
 - name: "Quietly accept Java licence"
-  shell: |
-    /usr/bin/debconf-set-selections oracle-java12-installer shared/accepted-oracle-license-v1-2 select true
-  changed_when: false
+  debconf:
+    name: "{{ java_package }}"
+    question: "shared/accepted-oracle-license-v1-2"
+    vtype: select
+    value: 'true'
 
 - name: "Install Java"
   apt:
-    name: "{{ java_packages }}"
+    name: "{{ java_package }}"
     state: present
 
 - name: "Set default"
