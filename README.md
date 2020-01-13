@@ -13,14 +13,14 @@ None.
 
 Role Variables
 --------------
-None of variables is needed to be altered for install Oracle Java 12 from [Linux Uprising PPA](https://launchpad.net/~linuxuprising/+archive/ubuntu/java).
+None of variables is needed to be altered for install Oracle Java 13 from [Linux Uprising PPA](https://launchpad.net/~linuxuprising/+archive/ubuntu/java).
 But all available variables are listed below, along with default values (see `defaults/main.yml`):
 
-    java_package: "oracle-java12-installer"
+    java_package: "oracle-java13-installer"
 
 Package to install Java.
 
-    java_set_default_package: "oracle-java12-set-default"
+    java_set_default_package: "oracle-java13-set-default"
 
 Package to set this version of Java used by default. 
 
