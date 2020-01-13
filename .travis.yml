@@ -4,7 +4,7 @@ services: docker
 
 env:
   global:
-    - ROLE_NAME: oracle-java
+    - ROLE_NAME: oracle_java
   matrix:
     - MOLECULE_DISTRO: ubuntu1804
     # - MOLECULE_DISTRO: debian9
@@ -16,7 +16,7 @@ install:
 before_script:
   # Use actual Ansible Galaxy role name for the project directory.
   - cd ../
-  - mv ansible-role-$ROLE_NAME webarchitect609.$ROLE_NAME
+  - mv ansible-role-oracle-java webarchitect609.$ROLE_NAME
   - cd webarchitect609.$ROLE_NAME
 
 script:
